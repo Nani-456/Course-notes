@@ -1,0 +1,546 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red179\green179\blue179;
+\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c0\c84706;\cssrgb\c75294\c75294\c75294;
+\cssrgb\c50196\c50196\c50196;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid1\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww30040\viewh18340\viewkind0
+\deftab720
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 1. Single Responsibility Principle (SRP)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 \strokec2 Definition
+\f1\b0 : A class should have only one reason to change, meaning it should have only one job.\
+
+\f0\b Real-World Example
+\f1\b0 :\uc0\u8232 Let's say you are building an 
+\f0\b Employee Management System
+\f1\b0 . You might have a class that handles employee details and also writes them to a database. This violates SRP because it does two things: manages employee data and handles database operations.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Violation of SRP\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+class Employee \{\
+    private String name;\
+    private double salary;\
+\
+    public Employee(String name, double salary) \{\
+        this.name = name;\
+        this.salary = salary;\
+    \}\
+\
+    public void saveToDatabase() \{\
+        // Code to save employee data in DB\
+        System.out.println("Employee saved to database.");\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \strokec2 Here, the 
+\f2\fs26 \strokec2 Employee
+\f1\fs24 \strokec2  class has two responsibilities:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Managing employee data.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Storing data in the database.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 \strokec2 Correct Implementation\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+class Employee \{\
+    private String name;\
+    private double salary;\
+\
+    public Employee(String name, double salary) \{\
+        this.name = name;\
+        this.salary = salary;\
+    \}\
+\}\
+\
+class EmployeeRepository \{\
+    public void saveToDatabase(Employee employee) \{\
+        System.out.println("Employee saved to database.");\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b\fs24 \cf0 \strokec2 When to use?
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When you need to 
+\f0\b separate concerns
+\f1\b0  in your application.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Helps in better maintainability and testing.\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 2. Open/Closed Principle (OCP)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 \strokec2 Definition
+\f1\b0 : A class should be 
+\f0\b open for extension
+\f1\b0  but 
+\f0\b closed for modification
+\f1\b0 .\
+
+\f0\b Real-World Example
+\f1\b0 :\uc0\u8232 Suppose you are designing a 
+\f0\b discount system
+\f1\b0  where different types of customers get different discounts.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Violation of OCP\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+class DiscountService \{\
+    public double getDiscount(String customerType) \{\
+        if (customerType.equals("Regular")) \{\
+            return 10.0;\
+        \} else if (customerType.equals("Premium")) \{\
+            return 20.0;\
+        \}\
+        return 0.0;\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \strokec2 If a new customer type is added, you need to modify this class, which violates OCP.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Correct Implementation (Using Polymorphism)\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+interface Discount \{\
+    double getDiscount();\
+\}\
+\
+class RegularCustomerDiscount implements Discount \{\
+    public double getDiscount() \{\
+        return 10.0;\
+    \}\
+\}\
+\
+class PremiumCustomerDiscount implements Discount \{\
+    public double getDiscount() \{\
+        return 20.0;\
+    \}\
+\}\
+\
+class DiscountService \{\
+    public double applyDiscount(Discount discount) \{\
+        return discount.getDiscount();\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b\fs24 \cf0 \strokec2 When to use?
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When you need to 
+\f0\b extend functionality
+\f1\b0  without modifying existing code.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Useful in 
+\f0\b payment processing, discount systems, tax calculations
+\f1\b0 , etc.\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 3. Liskov Substitution Principle (LSP)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 \strokec2 Definition
+\f1\b0 : Subclasses should be replaceable by their base classes without altering the correctness of the program.\
+
+\f0\b Real-World Example
+\f1\b0 :\uc0\u8232 Consider a 
+\f0\b Bird class
+\f1\b0  where a method 
+\f2\fs26 \strokec2 fly()
+\f1\fs24 \strokec2  is provided, but some birds (like penguins) cannot fly.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Violation of LSP\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+class Bird \{\
+    public void fly() \{\
+        System.out.println("Bird is flying.");\
+    \}\
+\}\
+\
+class Penguin extends Bird \{\
+    @Override\
+    public void fly() \{\
+        throw new UnsupportedOperationException("Penguins cannot fly.");\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \strokec2 Here, 
+\f0\b Penguin
+\f1\b0  violates LSP because it changes the expected behavior of 
+\f2\fs26 \strokec2 Bird
+\f1\fs24 \strokec2 .\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Correct Implementation (Using Segregation)\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+interface Bird \{\}\
+\
+interface FlyingBird \{\
+    void fly();\
+\}\
+\
+class Sparrow implements Bird, FlyingBird \{\
+    public void fly() \{\
+        System.out.println("Sparrow is flying.");\
+    \}\
+\}\
+\
+class Penguin implements Bird \{\
+    // No fly method\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b\fs24 \cf0 \strokec2 When to use?
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When designing 
+\f0\b inheritance hierarchies
+\f1\b0 , ensure that subclasses do not break the expected behavior.\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 4. Interface Segregation Principle (ISP)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 \strokec2 Definition
+\f1\b0 : A class should not be forced to implement interfaces it does not use.\
+
+\f0\b Real-World Example
+\f1\b0 :\uc0\u8232 Imagine you are building a 
+\f0\b printer system
+\f1\b0  where some printers can scan and fax, but some can only print.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Violation of ISP\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+interface Printer \{\
+    void print();\
+    void scan();\
+    void fax();\
+\}\
+\
+class BasicPrinter implements Printer \{\
+    public void print() \{\
+        System.out.println("Printing...");\
+    \}\
+    \
+    public void scan() \{\
+        throw new UnsupportedOperationException("Scan not supported.");\
+    \}\
+\
+    public void fax() \{\
+        throw new UnsupportedOperationException("Fax not supported.");\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \strokec2 Here, 
+\f0\b BasicPrinter
+\f1\b0  is forced to implement methods it does not need.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Correct Implementation\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+interface Printer \{\
+    void print();\
+\}\
+\
+interface Scanner \{\
+    void scan();\
+\}\
+\
+interface FaxMachine \{\
+    void fax();\
+\}\
+\
+class BasicPrinter implements Printer \{\
+    public void print() \{\
+        System.out.println("Printing...");\
+    \}\
+\}\
+\
+class MultiFunctionPrinter implements Printer, Scanner, FaxMachine \{\
+    public void print() \{\
+        System.out.println("Printing...");\
+    \}\
+\
+    public void scan() \{\
+        System.out.println("Scanning...");\
+    \}\
+\
+    public void fax() \{\
+        System.out.println("Faxing...");\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b\fs24 \cf0 \strokec2 When to use?
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When designing 
+\f0\b modular applications
+\f1\b0  where not all implementations need all functionalities.\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \strokec2 5. Dependency Inversion Principle (DIP)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 \strokec2 Definition
+\f1\b0 : High-level modules should not depend on low-level modules. Both should depend on abstractions.\
+
+\f0\b Real-World Example
+\f1\b0 :\uc0\u8232 Imagine a 
+\f0\b notification system
+\f1\b0  that sends emails.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Violation of DIP\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+class EmailService \{\
+    public void sendEmail(String message) \{\
+        System.out.println("Email sent: " + message);\
+    \}\
+\}\
+\
+class NotificationService \{\
+    private EmailService emailService = new EmailService();\
+\
+    public void notifyUser(String message) \{\
+        emailService.sendEmail(message);\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \strokec2 Here, 
+\f0\b NotificationService
+\f1\b0  is tightly coupled to 
+\f0\b EmailService
+\f1\b0 .\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Correct Implementation (Using Dependency Injection)\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \strokec2 java\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs22 \cf3 \cb4 \strokec3 CopyEdit
+\f2\fs26 \cf0 \cb1 \strokec2 \
+interface MessageService \{\
+    void sendMessage(String message);\
+\}\
+\
+class EmailService implements MessageService \{\
+    public void sendMessage(String message) \{\
+        System.out.println("Email sent: " + message);\
+    \}\
+\}\
+\
+class SMSService implements MessageService \{\
+    public void sendMessage(String message) \{\
+        System.out.println("SMS sent: " + message);\
+    \}\
+\}\
+\
+class NotificationService \{\
+    private MessageService messageService;\
+\
+    public NotificationService(MessageService messageService) \{\
+        this.messageService = messageService;\
+    \}\
+\
+    public void notifyUser(String message) \{\
+        messageService.sendMessage(message);\
+    \}\
+\}\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \strokec2 Now, you can easily swap 
+\f0\b EmailService
+\f1\b0  with 
+\f0\b SMSService
+\f1\b0  without modifying 
+\f2\fs26 \strokec2 NotificationService
+\f1\fs24 \strokec2 .\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 When to use?
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls6\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When designing 
+\f0\b loosely coupled systems
+\f1\b0 .\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Used in 
+\f0\b Spring Framework (Dependency Injection)
+\f1\b0 .\
+\pard\pardeftab720\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 \strokec2 Summary Table\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth933\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4339\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4559\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\fs24 \cf0 \strokec2 Principle\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Key Idea\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Real-World Example\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth933\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4339\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4559\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 SRP
+\f1\b0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 One class, one responsibility\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Separate Employee and Database logic\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth933\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4339\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4559\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b \cf0 OCP
+\f1\b0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Open for extension, closed for modification\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Discount calculation using interfaces\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth933\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4339\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4559\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b \cf0 LSP
+\f1\b0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Subtypes should be replaceable\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Bird hierarchy (Penguin shouldn\'92t extend Bird)\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth933\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4339\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4559\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b \cf0 ISP
+\f1\b0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Do not force unnecessary methods\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Printer interfaces for different functionalities\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth933\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth4339\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth4559\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b \cf0 DIP
+\f1\b0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Depend on abstractions, not implementations\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Notification system using dependency injection\cell \lastrow\row
+}
